@@ -4,7 +4,7 @@
   "main": "index.js",
   "scripts": {
     "start": "npx ts-node src/index.ts",
-    "dev": "nodemon --watch src --ext ts --exec \"npx ts-node src/cli.ts\"",
+    "dev": "nodemon --watch src --ext ts --exec \"npx ts-node src/server.ts\"",
     "build": "tsc",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -13,11 +13,18 @@
   "license": "ISC",
   "description": "",
   "devDependencies": {
+    "@types/cors": "^2.8.19",
+    "@types/express": "^5.0.3",
     "@types/node": "^24.0.3",
-    "nodemon": "^3.1.10"
+    "nodemon": "^3.1.10",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.8.3"
   },
   "dependencies": {
+    "cors": "^2.8.5",
     "dotenv": "^16.5.0",
-    "playwright": "^1.53.0"
+    "express": "^5.1.0",
+    "playwright": "^1.53.0",
+    "tinyurl": "^1.1.7"
   }
 }

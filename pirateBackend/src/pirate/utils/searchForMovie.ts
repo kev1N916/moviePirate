@@ -1,6 +1,6 @@
 import { Page } from "playwright";
 
-export const findMovie = async (movie: string, page: Page) => {
+export const searchForMovie = async (movie: string, page: Page) => {
   try {
     await page.waitForSelector("#s");
     await page.fill("#s", movie);

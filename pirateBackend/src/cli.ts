@@ -1,5 +1,5 @@
 import * as readline from "readline";
-import { getMovieDownloadLink } from ".";
+import { downloadMovie } from ".";
 interface MovieRequest {
   name: string;
   quality: string;
@@ -86,7 +86,7 @@ class MovieCLI {
 
         this.displayMovieInfo(movieRequest);
 
-        const finalDownloadUrl = await getMovieDownloadLink(movieName, quality);
+        const finalDownloadUrl = await downloadMovie(movieName, quality);
         if (finalDownloadUrl) {
           console.log(`The url for downloading ${movieName} is : \n`);
           console.log(finalDownloadUrl);

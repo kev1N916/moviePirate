@@ -1,14 +1,14 @@
 import { chromium, Browser, BrowserContext, Page } from "playwright";
-import { findMovie } from "./utils.ts/findMovie";
-import { findMovieCard } from "./utils.ts/findMovieCard";
-import { goToWebsite } from "./utils.ts/goToWebsite";
-import { goToMovieUrl } from "./utils.ts/goToMovieUrl";
-import { getDownloadLinks } from "./utils.ts/getDownloadLinks";
-import { filterLinks } from "./utils.ts/filterLinks";
-import { getFinalDownloadUrl } from "./utils.ts/getFinalDownloadUrl";
-import { findMovieUrl } from "./utils.ts/findMovieUrl";
+import { searchForMovie } from "./pirate/utils/searchForMovie";
+import { findMovieCard } from "./pirate/utils/findMovieCard";
+import { goToWebsite } from "./pirate/utils/goToWebsite";
+import { goToMovieUrl } from "./pirate/utils/goToMovieUrl";
+import { getDownloadLinks } from "./pirate/utils/getDownloadLinks";
+import { filterLinks } from "./pirate/utils/filterLinks";
+import { getFinalDownloadUrl } from "./pirate/utils/getFinalDownloadUrl";
+import { findMovieUrl } from "./pirate/utils/findMovieUrl";
 
-export const getMovieDownloadLink = async (
+export const downloadMovie = async (
   movie: string,
   quality: string
 ): Promise<string> => {
@@ -27,7 +27,7 @@ export const getMovieDownloadLink = async (
 
   try {
     await goToWebsite(page);
-    await findMovie(movie, page);
+    await searchForMovie(movie, page);
     const movieCards = await findMovieCard(movie, page);
     const movieUrl = findMovieUrl(movieCards, movie);
     if (movieUrl === "") {
